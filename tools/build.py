@@ -253,6 +253,46 @@ for c in HUN:
         mcq(f"K{ord(c):x}-{n + 1}", KANJI_UNIT[c], "기본", f"「{w}」를 바르게 읽은 것은? ({c}의 읽기에 주의)", r, rnd.sample(alts, min(3, len(alts))),
             f"{w}({r}) — {short(WK[(w, r)][0])}. 여기서 {c}는 {reading_of(i)}(으)로 읽습니다. 다른 읽기: {others}", ["S08", "S10"], rnd)
 
+# 독해 문제: 원고(content/reading_*.md)의 본문(> 인용)·**문제**·①~④·**정답**을 그대로 옮김 → 원고를 고치면 문제도 같이 바뀜
+# id = R + 단원번호 + 섹션 순번 + -문제번호 (원고의 섹션 순서를 바꾸지 말 것)
+CIRC = "①②③④"
+
+
+def passage_text(body):
+    out = []
+    for l in body.split("\n"):
+        if not l.startswith(">"):
+            continue
+        l = l[1:].strip().replace("**", "")
+        if re.fullmatch(r"\|[\s|:-]+\|", l):  # 표 구분선
+            continue
+        if l.startswith("|"):
+            l = " ／ ".join(c.strip() for c in l.strip("|").split("|"))
+        out.append(l)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(out)).strip()
+
+
+for f in sorted(glob.glob(os.path.join(CONTENT, "reading_*.md"))):
+    for ublk in re.split(r"^# (?=U\d\d\. )", open(f, encoding="utf-8").read(), flags=re.M)[1:]:
+        tag = ublk[:3]
+        for si, sblk in enumerate(re.split(r"^### ", ublk, flags=re.M)[1:], 1):
+            title, _, body = sblk.partition("\n")
+            qs = re.findall(r"^\*\*문제(?: (\d))?\*\* (.+)\n(①.+)$", body, re.M)
+            ans = re.search(r"^\*\*정답\*\* (.+)$", body, re.M)
+            passage = passage_text(body)
+            if not qs or not ans or not passage:
+                continue
+            marks = dict(re.findall(r"(\d)-([①②③④])", ans.group(1))) or {"": ans.group(1).strip()[0]}
+            why = ans.group(1).split("—", 1)[1].strip() if "—" in ans.group(1) else ""
+            for num, question, line in qs:
+                choices = [c.strip() for c in re.split(r"[①②③④]", line)[1:]]
+                right = marks.get(num or "", marks.get("", ""))
+                if len(choices) != 4 or len(right) != 1 or right not in CIRC:
+                    sys.exit(f"{os.path.basename(f)} {tag} {title}: 문제·보기·정답 형식 확인")
+                Q.append({"id": f"R{tag[1:]}{si:02d}-{num or 1}", "topic": tag, "level": "응용", "passage": passage,
+                          "question": f"[{title.strip()}] {question.strip()}", "choices": choices, "answerIndex": CIRC.index(right),
+                          "explanation": (why + " " if why else "") + f"(해석은 {tag} 교재의 '정답·해석 보기')", "sourceIds": []})
+
 # 손으로 쓴 문제 tools/q/*.txt — 블록 형식 (정답을 + 로 먼저 쓰면 보기 순서는 id 로 섞음)
 #   @G0301 U03 기본        ← id 단원 난이도(입문·기본·응용)
 #   ? 私（　）学生です。     ← 문제 (여러 줄 가능)

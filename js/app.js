@@ -361,7 +361,7 @@
     }
     const q = QUESTIONS.find(x => x.id === QS.list[QS.i]), done = QS.answered[q.id], L = BOOK.find(u => u.tag === q.topic), prev = quizSt()[q.id];
     let h = `<div class="qcard"><div class="qmeta"><span>${QS.i + 1} / ${QS.list.length}</span><span class="lv">${esc(q.level)}</span><span>${esc(q.topic)}${L ? " " + esc(L.title) : ""}</span><span class="qid">${q.id}${prev ? ` · 지난 기록 ${prev.ok ? "맞힘" : "틀림"} (${prev.n}회)` : ""}</span></div>
-      <h3>${esc(q.question)}</h3>${q.code ? `<pre class="qcode">${esc(q.code)}</pre>` : ""}<div class="choices${q.code ? " mono" : ""}">`;
+      ${q.passage ? `<div class="qcode" style="font:inherit;font-size:16px;line-height:1.75;white-space:pre-wrap">${esc(q.passage)}</div>` : ""}<h3>${esc(q.question)}</h3>${q.code ? `<pre class="qcode">${esc(q.code)}</pre>` : ""}<div class="choices${q.code ? " mono" : ""}">`;
     q.choices.forEach((c, i) => {
       let cls = "";
       if (done) cls = i === q.answerIndex ? "right" : i === done.a ? "wrong" : "dim";

@@ -15,7 +15,7 @@ window.SITE = {
   book: {
     files: ["content/start.md", "content/grammar_n5.md", "content/grammar_n4.md", "content/grammar_n3.md", "content/grammar_n2.md", "content/grammar_n1.md", "content/keigo.md",
       "content/vocab.md", "content/vocab_topics.md", "content/kanji_intro.md", "content/kanji.md", "content/kanji_words.md",
-      "content/reading_short.md", "content/reading_long.md", "content/talk_daily.md", "content/talk_business.md", "content/dict.md", "content/review.md"],
+      "content/reading_short.md", "content/reading_short2.md", "content/reading_long.md", "content/talk_daily.md", "content/talk_business.md", "content/dict.md", "content/review.md"],
     groups: [
       { h: "입문", from: "U01", to: "U02", desc: "문자·발음·문장의 뼈대" },
       { h: "문법", from: "U03", to: "U21", desc: "N5 → N1 · 경어" },
