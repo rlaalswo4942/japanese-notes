@@ -253,8 +253,22 @@ for c in HUN:
         mcq(f"K{ord(c):x}-{n + 1}", KANJI_UNIT[c], "기본", f"「{w}」를 바르게 읽은 것은? ({c}의 읽기에 주의)", r, rnd.sample(alts, min(3, len(alts))),
             f"{w}({r}) — {short(WK[(w, r)][0])}. 여기서 {c}는 {reading_of(i)}(으)로 읽습니다. 다른 읽기: {others}", ["S08", "S10"], rnd)
 
-for f in sorted(glob.glob(os.path.join(HERE, "q", "*.json"))):
-    Q += json.load(open(f, encoding="utf-8"))
+# 손으로 쓴 문제 tools/q/*.txt — 블록 형식 (정답을 + 로 먼저 쓰면 보기 순서는 id 로 섞음)
+#   @G0301 U03 기본        ← id 단원 난이도(입문·기본·응용)
+#   ? 私（　）学生です。     ← 문제 (여러 줄 가능)
+#   + は                    ← 정답
+#   - を                    ← 오답 3개
+#   = 해설
+#   ! S16                   ← 출처 id (선택)
+for f in sorted(glob.glob(os.path.join(HERE, "q", "*.txt"))):
+    for blk in re.split(r"^@", open(f, encoding="utf-8").read(), flags=re.M)[1:]:
+        head, *lines = blk.strip().split("\n")
+        qid, topic, level = head.split()
+        get = lambda p: [l[2:].strip() for l in lines if l.startswith(p + " ")]
+        right, wrongs = get("+"), get("-")
+        if len(right) != 1 or len(wrongs) != 3:
+            sys.exit(f"{os.path.basename(f)} {qid}: 정답 1개·오답 3개가 필요")
+        mcq(qid, topic, level, "\n".join(get("?")), right[0], wrongs, " ".join(get("=")), get("!") or [], random.Random(qid))
 ids = [q["id"] for q in Q]
 dup = {x for x in ids if ids.count(x) > 1} if len(ids) != len(set(ids)) else set()
 if dup:

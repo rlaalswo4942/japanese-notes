@@ -1,6 +1,6 @@
 /* 일본어 학습노트 - 사이트 설정
  * 원고는 content/ 의 md 여러 개(SITE.book.files 순서대로 이어 붙여 한 교재로 해석)
- *   손으로 쓰는 원고: start · grammar · vocab_topics · kanji_intro · kanji_words · reading · talk · review
+ *   손으로 쓰는 원고: start · grammar_n5~n1 · keigo · vocab_topics · kanji_intro · kanji_words · reading_short/long · talk_daily/business · review
  *   생성 원고(python tools/build.py — 손으로 고치지 말 것): vocab · kanji · dict · questions.json
  */
 window.SITE = {
@@ -13,8 +13,9 @@ window.SITE = {
   syncApi: "https://ai-hackathon-sync.vercel.app/api/state",
   unit: "", unitPrefix: "", unitEn: "UNIT",
   book: {
-    files: ["content/start.md", "content/grammar.md", "content/vocab.md", "content/vocab_topics.md", "content/kanji_intro.md", "content/kanji.md",
-      "content/kanji_words.md", "content/reading.md", "content/talk.md", "content/dict.md", "content/review.md"],
+    files: ["content/start.md", "content/grammar_n5.md", "content/grammar_n4.md", "content/grammar_n3.md", "content/grammar_n2.md", "content/grammar_n1.md", "content/keigo.md",
+      "content/vocab.md", "content/vocab_topics.md", "content/kanji_intro.md", "content/kanji.md", "content/kanji_words.md",
+      "content/reading_short.md", "content/reading_long.md", "content/talk_daily.md", "content/talk_business.md", "content/dict.md", "content/review.md"],
     groups: [
       { h: "입문", from: "U01", to: "U02", desc: "문자·발음·문장의 뼈대" },
       { h: "문법", from: "U03", to: "U21", desc: "N5 → N1 · 경어" },
