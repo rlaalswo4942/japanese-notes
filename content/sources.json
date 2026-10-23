@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "sources": [
+    {"id": "S01", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "N1–N5: Summary of Linguistic Competence Required for Each Level", "url": "https://www.jlpt.jp/e/about/levelsummary.html", "scope": "급수별 요구 능력"},
+    {"id": "S02", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "FAQ", "url": "https://www.jlpt.jp/e/faq/", "scope": "공식 어휘·한자 목록 비공개, 말하기·쓰기 미평가"},
+    {"id": "S03", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "Test Sections and Test Times", "url": "https://www.jlpt.jp/e/guideline/testsections.html", "scope": "급수별 시험 영역"},
+    {"id": "S04", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "Scoring and Pass/Fail", "url": "https://www.jlpt.jp/e/guideline/results.html", "scope": "합격 점수·영역별 기준점"},
+    {"id": "S05", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "Sample Questions", "url": "https://www.jlpt.jp/e/samples/sampleindex.html", "scope": "공식 예제 문제(링크만)"},
+    {"id": "S06", "kind": "사전·데이터 (오픈 라이선스)", "organization": "jamsinclair / Jonathan Waller", "title": "open-anki-jlpt-decks — JLPT 급수별 단어 목록", "url": "https://github.com/jamsinclair/open-anki-jlpt-decks", "scope": "N5–N1 단어 목록(Waller 목록 기반, 학습용 비공식)"},
+    {"id": "S07", "kind": "사전·데이터 (오픈 라이선스)", "organization": "David Gouveia", "title": "kanji-data — KANJIDIC2 + JLPT 급수 한자 데이터", "url": "https://github.com/davidluzgouveia/kanji-data", "scope": "한자 급수·빈도·획수"},
+    {"id": "S08", "kind": "사전·데이터 (오픈 라이선스)", "organization": "EDRDG", "title": "KANJIDIC Project", "url": "https://www.edrdg.org/wiki/index.php/KANJIDIC_Project", "scope": "한자의 음독·훈독·한국 한자음"},
+    {"id": "S09", "kind": "사전·데이터 (오픈 라이선스)", "organization": "EDRDG", "title": "JMdict-EDICT Dictionary Project", "url": "https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project", "scope": "단어의 품사·상용어 표시"},
+    {"id": "S10", "kind": "사전·데이터 (오픈 라이선스)", "organization": "Doublevil", "title": "JmdictFurigana — 단어별 한자 읽기 분해", "url": "https://github.com/Doublevil/JmdictFurigana", "scope": "단어 속 한자가 어느 읽기로 쓰였는지"},
+    {"id": "S11", "kind": "사전·데이터 (오픈 라이선스)", "organization": "scriptin", "title": "jmdict-simplified — JMdict JSON", "url": "https://github.com/scriptin/jmdict-simplified", "scope": "JMdict 가공본"},
+    {"id": "S12", "kind": "사전·데이터 (오픈 라이선스)", "organization": "Robyn Speer", "title": "wordfreq", "url": "https://github.com/rspeer/wordfreq", "scope": "단어 사용 빈도(배열 순서)"},
+    {"id": "S13", "kind": "사전·데이터 (오픈 라이선스)", "organization": "libhangul", "title": "libhangul 한자 사전 데이터", "url": "https://github.com/libhangul/libhangul", "scope": "한자 훈음 후보(대표 훈음은 직접 검토)"},
+    {"id": "S14", "kind": "사전·데이터 (오픈 라이선스)", "organization": "Unicode", "title": "Unihan Database", "url": "https://www.unicode.org/charts/unihan.html", "scope": "신자체·정자 이체자 대응"},
+    {"id": "S15", "kind": "사전·데이터 (오픈 라이선스)", "organization": "EDRDG", "title": "EDRDG Licence (CC BY-SA 4.0)", "url": "https://www.edrdg.org/edrdg/licence.html", "scope": "사전 데이터 이용 조건 — 이 사이트의 단어·한자 데이터도 같은 조건"},
+    {"id": "S16", "kind": "일본 정부 기준", "organization": "文化庁 (일본 문화청)", "title": "敬語の指針 (경어의 지침, 2007)", "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/keigo_tosin.pdf", "scope": "경어 5분류(존경어·겸양어Ⅰ·겸양어Ⅱ·정중어·미화어)"},
+    {"id": "S17", "kind": "일본 정부 기준", "organization": "文化庁 (일본 문화청)", "title": "外来語の表記 (외래어 표기)", "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/gairai/index.html", "scope": "가타카나 외래어 표기 규칙"},
+    {"id": "S18", "kind": "일본 정부 기준", "organization": "文化庁 (일본 문화청)", "title": "常用漢字表 (상용한자표)", "url": "https://www.bunka.go.jp/kokugo_nihongo/sisaku/joho/joho/kijun/naikaku/kanji/index.html", "scope": "상용한자 2,136자와 음훈"},
+    {"id": "S19", "kind": "학습 자료", "organization": "国際交流基金 (국제교류기금)", "title": "いろどり 生活の日本語", "url": "https://www.irodori.jpf.go.jp/", "scope": "생활 일본어 장면·문형(무료 교재·음성)"},
+    {"id": "S20", "kind": "학습 자료", "organization": "国際交流基金 (국제교류기금)", "title": "JF 일본어 e러닝 みなと", "url": "https://www.minato-jf.jp/", "scope": "가나·문법 무료 강좌"},
+    {"id": "S21", "kind": "학습 자료", "organization": "NHK", "title": "NEWS WEB EASY", "url": "https://www3.nhk.or.jp/news/easy/", "scope": "쉬운 일본어 뉴스(독해 연습용 링크)"},
+    {"id": "S22", "kind": "학습 자료", "organization": "NPO 多言語多読", "title": "Free Japanese Graded Readers", "url": "https://tadoku.org/japanese/en/free-books-en/", "scope": "수준별 무료 읽기 자료(링크)"},
+    {"id": "S23", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "JLPT Can-do 自己評価リスト", "url": "https://www.jlpt.jp/about/candolist.html", "scope": "급수별로 할 수 있는 일(자가 평가)"},
+    {"id": "S24", "kind": "시험 공식 자료", "organization": "日本漢字能力検定協会", "title": "BJT ビジネス日本語能力テスト", "url": "https://www.kanken.or.jp/bjt/", "scope": "비즈니스 일본어 능력 시험"},
+    {"id": "S25", "kind": "시험 공식 자료", "organization": "JLPT 일본어능력시험", "title": "Points of the JLPT (과제 수행 능력 측정)", "url": "https://www.jlpt.jp/e/about/points.html", "scope": "언어 지식과 과제 수행 능력"}
+  ]
+}
