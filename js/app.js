@@ -208,9 +208,9 @@
     if (FEAT.calc) h += tool("calc", "TOOL", LB.calcTitle, "TP·TN·FP·FN을 넣어 정확도·정밀도·재현율·F1 계산");
     if (DICT.length) h += tool("dict", "TOOL", LB.dictTitle, `교재의 용어 ${DICT.length}개 검색`);
     const rvL = UNITS.find(u => u.id === "review"); if (rvL) h += card(rvL);
-    h += `</div><h2 class="grp">${esc(LB.extraGroup)} <small>${esc(LB.extra)}</small></h2><div class="cat-grid">`;
-    (window.EXTRA || []).forEach(L => (h += card(L)));
-    h += `</div></div>`;
+    h += `</div>`;
+    if ((window.EXTRA || []).length) h += `<h2 class="grp">${esc(LB.extraGroup)} <small>${esc(LB.extra)}</small></h2><div class="cat-grid">${window.EXTRA.map(L => card(L)).join("")}</div>`;
+    h += `</div>`;
     main.innerHTML = h;
     main.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => (location.hash = b.dataset.go)));
   }
